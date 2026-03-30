@@ -30,6 +30,7 @@ Designed for embedded systems debugging by converting raw UART logs into structu
 
 ## Project Structure
 
+```text
 linux-serial-log-parser/
 ├── README.md
 ├── requirements.txt
@@ -37,15 +38,18 @@ linux-serial-log-parser/
 │   └── uart_log.txt
 ├── src/
 │   └── parser.py
+```
 
 ---
 
 ## Sample Input
 
+```text
 [2026-03-29 10:15:23] INFO System boot complete
 [2026-03-29 10:15:25] WARN UART buffer nearing capacity
 [2026-03-29 10:15:27] ERROR Sensor initialization failed
 [2026-03-29 10:15:30] INFO Retrying sensor setup
+```
 
 ---
 
@@ -59,19 +63,25 @@ The parser reads each log line and uses regex to extract:
 
 Example parsed format:
 
+```text
 2026-03-29 10:15:23 | INFO | System boot complete
+```
 
 ---
 
 ## Usage
 
-Run parser (all logs):
+Run parser for all logs:
 
+```bash
 python3 src/parser.py sample_logs/uart_log.txt
+```
 
 Run parser with filtering (WARN & ERROR only):
 
+```bash
 python3 src/parser.py sample_logs/uart_log.txt "WARN, ERROR"
+```
 
 ---
 
@@ -79,13 +89,17 @@ python3 src/parser.py sample_logs/uart_log.txt "WARN, ERROR"
 
 CSV file is generated at:
 
+```text
 output/parsed_logs.csv
+```
 
 Example output:
 
+```csv
 timestamp,level,message
 2026-03-29 10:15:25,WARN,UART buffer nearing capacity
 2026-03-29 10:15:27,ERROR,Sensor initialization failed
+```
 
 ---
 
@@ -120,4 +134,4 @@ Useful for:
 ## Author
 
 Ashwine  
-https://github.com/ashwine-codes
+GitHub: ashwine-codes
