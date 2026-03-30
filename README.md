@@ -2,6 +2,8 @@
 
 A lightweight Python utility to parse UART/serial debug logs and convert raw text into structured CSV format for easier analysis.
 
+Designed for embedded systems debugging by converting raw UART logs into structured, analyzable data.
+
 ---
 
 ## Features
@@ -17,6 +19,15 @@ A lightweight Python utility to parse UART/serial debug logs and convert raw tex
 
 ---
 
+## Key Concepts Used
+
+- Command-line interface (CLI) using sys.argv
+- Regular expressions (regex) for log parsing
+- File handling and text processing
+- CSV generation for structured data output
+
+---
+
 ## Project Structure
 
 linux-serial-log-parser/
@@ -24,10 +35,8 @@ linux-serial-log-parser/
 ├── requirements.txt
 ├── sample_logs/
 │   └── uart_log.txt
-├── output/
-│   └── parsed_logs.csv
-└── src/
-    └── parser.py
+├── src/
+│   └── parser.py
 
 ---
 
@@ -91,6 +100,7 @@ timestamp,level,message
 ## Use Case
 
 Useful for:
+
 - Embedded systems debugging
 - Firmware log analysis
 - Filtering critical logs (WARN/ERROR)
